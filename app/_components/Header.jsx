@@ -1,10 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect } from "react";
-import { signIn, signOut, useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
-
+import { signIn, signOut, useSession } from "next-auth/react";
+import Image from "next/image";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,10 +15,6 @@ import Link from "next/link";
 
 function Header() {
   const { data } = useSession();
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   return (
     <div className="p-5 shadow-sm flex justify-between">
@@ -68,9 +62,7 @@ function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
         ) : (
-          <Button onClick={() => signIn("descope", { callbackUrl: "/" })}>
-            Login / Sign Up
-          </Button>
+          <Button onClick={() => signIn("descope")}>Login / Sign Up</Button>
         )}
       </div>
     </div>
