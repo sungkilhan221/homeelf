@@ -29,7 +29,9 @@ function BusinessDetail({ params }) {
     if (status === "loading") return <div>Loading...</div>;
 
     if (status === "unauthenticated") {
-      signIn("descope");
+      signIn("descope", {
+        callbackUrl: "/",
+      });
     }
   };
 
